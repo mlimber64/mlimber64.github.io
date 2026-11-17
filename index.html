@@ -1,0 +1,378 @@
+<!doctype html>
+<!-- Idioma principal: italiano. El JS cambia el contenido a inglés o español sin recargar. -->
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Limber Mendoza Tolentino · Sviluppatore Full Stack</title>
+  <meta name="description" content="Portfolio di Limber Mendoza Tolentino, sviluppatore full stack a Salerno: microservizi con Java e .NET, applicazioni Angular e app mobile Flutter.">
+  <meta name="theme-color" content="#070b14">
+  <meta name="color-scheme" content="dark">
+
+  <!-- Open Graph para compartir el enlace -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Limber Mendoza Tolentino · Sviluppatore Full Stack">
+  <meta property="og:description" content="Microservizi, applicazioni web e app mobile. Portfolio con i miei progetti principali.">
+  <meta property="og:image" content="https://mlimber64.github.io/assets/cruscotto.png">
+
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+
+  <!-- Fuentes: títulos, texto y código -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Marca "js" antes del primer pintado: las animaciones de entrada solo se ocultan si hay JavaScript -->
+  <script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+  <a class="skip-link" href="#main" data-i18n="nav.skip">Vai al contenuto</a>
+
+  <!-- Barra de progreso de lectura -->
+  <div class="scroll-progress" aria-hidden="true"><span id="scrollProgress"></span></div>
+
+  <!-- Fondo animado: red de partículas -->
+  <canvas id="bgCanvas" class="bg-canvas" aria-hidden="true"></canvas>
+  <div class="bg-glow bg-glow--a" aria-hidden="true"></div>
+  <div class="bg-glow bg-glow--b" aria-hidden="true"></div>
+
+  <!-- ============ CABECERA ============ -->
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+      <a class="brand" href="#top" aria-label="Limber Mendoza Tolentino">
+        <span class="brand-mark" aria-hidden="true">LM</span>
+        <span class="brand-name">limber<span class="brand-dot">.</span>dev</span>
+      </a>
+
+      <nav class="main-nav" id="mainNav" aria-label="Principale">
+        <a href="#about" class="nav-link" data-i18n="nav.about">Chi sono</a>
+        <a href="#projects" class="nav-link" data-i18n="nav.projects">Progetti</a>
+        <a href="#skills" class="nav-link" data-i18n="nav.skills">Competenze</a>
+        <a href="#contact" class="nav-link" data-i18n="nav.contact">Contatti</a>
+      </nav>
+
+      <div class="header-actions">
+        <!-- Selector de idioma -->
+        <div class="lang-switch" role="group" aria-label="Lingua / Language / Idioma">
+          <button type="button" class="lang-btn" data-lang="it" aria-pressed="true">IT</button>
+          <button type="button" class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+          <button type="button" class="lang-btn" data-lang="es" aria-pressed="false">ES</button>
+        </div>
+        <button type="button" class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="mainNav" data-i18n-attr="aria-label:nav.menu" aria-label="Apri il menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="top">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow reveal"><span class="pulse-dot" aria-hidden="true"></span><span data-i18n="hero.eyebrow">Full Stack Developer · Salerno, Italia</span></p>
+          <h1 class="hero-title reveal">
+            <span class="hero-hello" data-i18n="hero.hello">Ciao, sono</span>
+            <span class="gradient-text">Limber Mendoza</span>
+          </h1>
+          <p class="hero-role reveal" aria-live="off">
+            <span class="hero-role-prefix" aria-hidden="true">&gt;</span>
+            <span id="typedRole" class="typed">Sviluppatore Full Stack</span><span class="caret" aria-hidden="true"></span>
+          </p>
+          <p class="hero-lead reveal" data-i18n="hero.lead">Progetto e costruisco sistemi a microservizi, applicazioni web e app mobile. Mi occupo di architettura pulita, test automatici e integrazione continua, dal database all'interfaccia.</p>
+          <div class="hero-cta reveal">
+            <a href="#projects" class="btn btn-primary"><span data-i18n="hero.ctaProjects">Vedi i progetti</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            <a href="#contact" class="btn btn-ghost" data-i18n="hero.ctaContact">Contattami</a>
+          </div>
+        </div>
+
+        <!-- Ventana de código decorativa -->
+        <div class="hero-visual reveal" aria-hidden="true">
+          <div class="code-window" id="codeWindow">
+            <div class="code-bar">
+              <i></i><i></i><i></i>
+              <span>developer.ts</span>
+            </div>
+<pre class="code-body"><code><span class="c-k">const</span> <span class="c-v">limber</span> <span class="c-p">=</span> <span class="c-p">{</span>
+  <span class="c-n">role</span><span class="c-p">:</span> <span class="c-s">"Full Stack Developer"</span><span class="c-p">,</span>
+  <span class="c-n">base</span><span class="c-p">:</span> <span class="c-s">"Salerno, IT"</span><span class="c-p">,</span>
+  <span class="c-n">backend</span><span class="c-p">:</span> <span class="c-p">[</span><span class="c-s">"Java"</span><span class="c-p">,</span> <span class="c-s">".NET"</span><span class="c-p">],</span>
+  <span class="c-n">frontend</span><span class="c-p">:</span> <span class="c-p">[</span><span class="c-s">"Angular"</span><span class="c-p">],</span>
+  <span class="c-n">mobile</span><span class="c-p">:</span> <span class="c-p">[</span><span class="c-s">"Flutter"</span><span class="c-p">],</span>
+  <span class="c-n">messaging</span><span class="c-p">:</span> <span class="c-p">[</span><span class="c-s">"Kafka"</span><span class="c-p">,</span> <span class="c-s">"RabbitMQ"</span><span class="c-p">],</span>
+  <span class="c-n">languages</span><span class="c-p">:</span> <span class="c-p">[</span><span class="c-s">"it"</span><span class="c-p">,</span> <span class="c-s">"en"</span><span class="c-p">,</span> <span class="c-s">"es"</span><span class="c-p">],</span>
+  <span class="c-n">building</span><span class="c-p">:</span> <span class="c-s">"microservices"</span>
+<span class="c-p">};</span></code></pre>
+          </div>
+          <span class="float-badge float-badge--a">Java 25</span>
+          <span class="float-badge float-badge--b">.NET 9</span>
+          <span class="float-badge float-badge--c">Angular</span>
+          <span class="float-badge float-badge--d">Flutter</span>
+        </div>
+      </div>
+
+      <a class="scroll-hint" href="#about" aria-label="Scroll">
+        <span class="scroll-hint-line"></span>
+      </a>
+    </section>
+
+    <!-- ============ CHI SONO ============ -->
+    <section class="section" id="about">
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="section-kicker">01</p>
+          <h2 class="section-title" data-i18n="about.title">Chi sono</h2>
+        </header>
+
+        <div class="about-grid">
+          <div class="about-text reveal">
+            <p data-i18n="about.p1">Sono uno sviluppatore full stack di Salerno. Mi piace trasformare un problema complesso in un sistema semplice da capire, da testare e da far crescere.</p>
+            <p data-i18n="about.p2">Lavoro con Java e Spring Boot, con .NET, con Angular e con Flutter. Nei miei progetti curo ogni dettaglio: architettura a livelli, messaggistica con eventi, pipeline di CI, analisi della qualità del codice e decisioni di progetto documentate.</p>
+            <p data-i18n="about.p3">Questo sito è disponibile in italiano, inglese e spagnolo: scegli la lingua in alto a destra.</p>
+          </div>
+
+          <ul class="stats reveal" aria-label="Numeri">
+            <li class="stat">
+              <span class="stat-value"><span data-count="25">25</span>+</span>
+              <span class="stat-label" data-i18n="stat.repos">Repository su GitHub</span>
+            </li>
+            <li class="stat">
+              <span class="stat-value"><span data-count="5">5</span></span>
+              <span class="stat-label" data-i18n="stat.featured">Progetti in evidenza</span>
+            </li>
+            <li class="stat">
+              <span class="stat-value"><span data-count="4">4</span></span>
+              <span class="stat-label" data-i18n="stat.stacks">Stack principali</span>
+            </li>
+            <li class="stat">
+              <span class="stat-value"><span data-count="3">3</span></span>
+              <span class="stat-label" data-i18n="stat.langs">Lingue del sito</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PROYECTOS ============ -->
+    <section class="section" id="projects">
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="section-kicker">02</p>
+          <h2 class="section-title" data-i18n="projects.title">Progetti in evidenza</h2>
+          <p class="section-sub" data-i18n="projects.subtitle">Cinque progetti per mostrare come lavoro: dall'architettura a microservizi alle app mobile.</p>
+        </header>
+
+        <!-- Proyecto principal: Gestione Ordini -->
+        <article class="project project--feature card reveal" data-spotlight>
+          <div class="project-body">
+            <p class="project-flag"><span data-i18n="projects.main">Progetto principale</span></p>
+            <h3 class="project-title">Gestione Ordini</h3>
+            <p class="project-tagline" data-i18n="p1.tagline">Microservizi per ordini, magazzino e notifiche</p>
+            <p class="project-desc" data-i18n="p1.desc">Sistema di gestione degli ordini a microservizi: catalogo, magazzino e ordini con riserva atomica delle giacenze, eventi su Apache Kafka con transactional outbox e notifiche in tempo reale.</p>
+            <ul class="project-points">
+              <li data-i18n="p1.f1">CI con test, SonarCloud e immagini pubblicate su GHCR</li>
+              <li data-i18n="p1.f2">Decisioni di architettura documentate in ADR</li>
+              <li data-i18n="p1.f3">Login con JWT o Keycloak (OIDC) e CDC opzionale con Debezium</li>
+            </ul>
+            <ul class="chips" aria-label="Stack">
+              <li>Java 25</li><li>Spring Boot 4</li><li>Angular 22</li><li>PostgreSQL 18</li><li>Kafka</li><li>Docker</li>
+            </ul>
+            <div class="project-links">
+              <a class="btn btn-primary" href="https://github.com/mlimber64/gestione-ordini" target="_blank" rel="noopener"><span data-i18n="projects.code">Codice su GitHub</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+              <a class="btn btn-ghost" href="https://github.com/mlimber64/gestione-ordini/releases" target="_blank" rel="noopener" data-i18n="projects.releases">Release</a>
+            </div>
+          </div>
+
+          <div class="project-media">
+            <div class="browser-frame">
+              <div class="browser-bar"><i></i><i></i><i></i><span>localhost:8080</span></div>
+              <img src="assets/cruscotto.png" width="1440" height="900" loading="lazy" decoding="async"
+                   alt="Cruscotto di Gestione Ordini: ordini per stato, ultimi ordini e scorte basse" data-i18n-attr="alt:p1.alt">
+            </div>
+          </div>
+        </article>
+
+        <div class="project-grid">
+          <!-- EventHub -->
+          <article class="project card reveal" data-spotlight>
+            <div class="project-art project-art--eventhub" aria-hidden="true">
+              <svg viewBox="0 0 320 150" fill="none">
+                <g class="art-lines" stroke-width="1.5">
+                  <path d="M160 75 L60 30"/><path d="M160 75 L60 120"/><path d="M160 75 L260 30"/><path d="M160 75 L260 120"/><path d="M160 75 L160 20"/>
+                </g>
+                <circle class="art-hub" cx="160" cy="75" r="20"/>
+                <circle class="art-node" cx="60" cy="30" r="11"/><circle class="art-node" cx="60" cy="120" r="11"/>
+                <circle class="art-node" cx="260" cy="30" r="11"/><circle class="art-node" cx="260" cy="120" r="11"/>
+                <circle class="art-node" cx="160" cy="20" r="11"/>
+                <circle class="art-dot art-dot--1" r="3"/><circle class="art-dot art-dot--2" r="3"/><circle class="art-dot art-dot--3" r="3"/>
+                <text x="160" y="79" text-anchor="middle" class="art-text">MQ</text>
+              </svg>
+            </div>
+            <div class="project-body">
+              <p class="project-meta"><span class="badge badge--private" data-i18n="projects.private">Repository privato</span></p>
+              <h3 class="project-title">EventHub</h3>
+              <p class="project-desc" data-i18n="p2.desc">Piattaforma per prenotare e vendere biglietti di eventi, a microservizi con .NET 9, PostgreSQL e RabbitMQ. L'acquisto attraversa quattro servizi e si risolve con una saga, Outbox/Inbox e rimborsi compensativi.</p>
+              <ul class="chips" aria-label="Stack">
+                <li>.NET 9</li><li>RabbitMQ</li><li>PostgreSQL</li><li>Angular</li><li>YARP</li><li>MediatR</li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- SmartBite AI -->
+          <article class="project card reveal" data-spotlight>
+            <div class="project-art project-art--smartbite" aria-hidden="true">
+              <svg viewBox="0 0 320 150" fill="none">
+                <circle class="ring-bg" cx="95" cy="75" r="48"/>
+                <circle class="ring ring--a" cx="95" cy="75" r="48" pathLength="100"/>
+                <circle class="ring-bg" cx="95" cy="75" r="32"/>
+                <circle class="ring ring--b" cx="95" cy="75" r="32" pathLength="100"/>
+                <circle class="ring-bg" cx="95" cy="75" r="16"/>
+                <circle class="ring ring--c" cx="95" cy="75" r="16" pathLength="100"/>
+                <g class="art-bars">
+                  <rect x="190" y="45" width="100" height="10" rx="5" class="bar-bg"/><rect x="190" y="45" width="72" height="10" rx="5" class="bar bar--a"/>
+                  <rect x="190" y="72" width="100" height="10" rx="5" class="bar-bg"/><rect x="190" y="72" width="48" height="10" rx="5" class="bar bar--b"/>
+                  <rect x="190" y="99" width="100" height="10" rx="5" class="bar-bg"/><rect x="190" y="99" width="86" height="10" rx="5" class="bar bar--c"/>
+                </g>
+              </svg>
+            </div>
+            <div class="project-body">
+              <p class="project-meta"><span class="badge badge--private" data-i18n="projects.private">Repository privato</span></p>
+              <h3 class="project-title">SmartBite AI</h3>
+              <p class="project-desc" data-i18n="p3.desc">App fitness intelligente: scansione dei pasti con l'IA, controllo nutrizionale e del budget. Clean Architecture feature-first: il backend (Supabase) si può sostituire senza toccare l'interfaccia.</p>
+              <ul class="chips" aria-label="Stack">
+                <li>Flutter</li><li>Riverpod</li><li>get_it</li><li>Supabase</li><li>Clean Architecture</li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- Parla con me! (app-multidiomas) -->
+          <article class="project card reveal" data-spotlight>
+            <div class="project-art project-art--parla" aria-hidden="true">
+              <svg viewBox="0 0 320 150" fill="none">
+                <g class="bubble bubble--in">
+                  <rect x="30" y="24" width="150" height="38" rx="14"/><text x="46" y="48">Ciao! Come stai?</text>
+                </g>
+                <g class="bubble bubble--out">
+                  <rect x="120" y="70" width="170" height="38" rx="14"/><text x="136" y="94">Bene, grazie. E tu?</text>
+                </g>
+                <g class="typing"><circle cx="46" cy="130" r="3.5"/><circle cx="60" cy="130" r="3.5"/><circle cx="74" cy="130" r="3.5"/></g>
+              </svg>
+            </div>
+            <div class="project-body">
+              <p class="project-meta"><span class="badge badge--public" data-i18n="projects.public">Codice pubblico</span></p>
+              <h3 class="project-title">Parla con me!</h3>
+              <p class="project-desc" data-i18n="p4.desc">Tutor di italiano con intelligenza artificiale per Android: conversazione testuale con l'insegnante IA basata su Gemini. La chiave API non entra mai nel repository.</p>
+              <ul class="chips" aria-label="Stack">
+                <li>Flutter</li><li>Dart</li><li>Gemini API</li>
+              </ul>
+              <div class="project-links">
+                <a class="link-arrow" href="https://github.com/mlimber64/app-multidiomas" target="_blank" rel="noopener"><span data-i18n="projects.code">Codice su GitHub</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Peru Eterno -->
+          <article class="project card reveal" data-spotlight>
+            <div class="project-art project-art--peru" aria-hidden="true">
+              <svg viewBox="0 0 320 150" fill="none">
+                <path class="tl-line" d="M24 75 H296"/>
+                <g class="tl-nodes">
+                  <circle cx="30" cy="75" r="8"/><circle cx="75" cy="75" r="8"/><circle cx="120" cy="75" r="8"/><circle cx="165" cy="75" r="8"/>
+                  <circle cx="210" cy="75" r="8"/><circle cx="255" cy="75" r="8"/><circle cx="294" cy="75" r="8"/>
+                </g>
+                <g class="tl-peaks">
+                  <path d="M60 52 L75 30 L90 52Z"/><path d="M150 52 L165 24 L180 52Z"/><path d="M240 52 L255 34 L270 52Z"/>
+                </g>
+                <g class="tl-cards">
+                  <rect x="48" y="96" width="54" height="26" rx="6"/><rect x="138" y="96" width="54" height="26" rx="6"/><rect x="228" y="96" width="54" height="26" rx="6"/>
+                </g>
+              </svg>
+            </div>
+            <div class="project-body">
+              <p class="project-meta"><span class="badge badge--public" data-i18n="projects.public">Codice pubblico</span></p>
+              <h3 class="project-title">Peru Eterno</h3>
+              <p class="project-desc" data-i18n="p5.desc">App mobile Flutter dedicata alla storia e alla cultura peruviana: sette ere storiche su una linea del tempo, interfaccia trilingue (IT/ES/EN) e modello freemium.</p>
+              <ul class="chips" aria-label="Stack">
+                <li>Flutter</li><li>Dart</li><li>i18n IT/ES/EN</li><li>Freemium</li>
+              </ul>
+              <div class="project-links">
+                <a class="link-arrow" href="https://github.com/mlimber64/peru-eterno" target="_blank" rel="noopener"><span data-i18n="projects.code">Codice su GitHub</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <p class="projects-more reveal">
+          <a class="link-arrow" href="https://github.com/mlimber64?tab=repositories" target="_blank" rel="noopener"><span data-i18n="projects.more">Tutti i repository su GitHub</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ COMPETENCIAS ============ -->
+    <section class="section" id="skills">
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="section-kicker">03</p>
+          <h2 class="section-title" data-i18n="skills.title">Competenze</h2>
+          <p class="section-sub" data-i18n="skills.subtitle">Gli strumenti che uso ogni giorno e che trovi nei miei progetti.</p>
+        </header>
+
+        <div class="skills-grid">
+          <article class="skill-card card reveal" data-spotlight>
+            <h3 class="skill-title"><span class="skill-icon" aria-hidden="true">&lt;/&gt;</span><span data-i18n="skills.backend">Backend</span></h3>
+            <ul class="chips"><li>Java</li><li>Spring Boot</li><li>WebFlux</li><li>C#</li><li>ASP.NET Core</li><li>MediatR</li><li>REST API</li></ul>
+          </article>
+          <article class="skill-card card reveal" data-spotlight>
+            <h3 class="skill-title"><span class="skill-icon" aria-hidden="true">◧</span><span data-i18n="skills.frontend">Frontend</span></h3>
+            <ul class="chips"><li>Angular</li><li>TypeScript</li><li>JavaScript</li><li>HTML</li><li>CSS</li></ul>
+          </article>
+          <article class="skill-card card reveal" data-spotlight>
+            <h3 class="skill-title"><span class="skill-icon" aria-hidden="true">▯</span><span data-i18n="skills.mobile">Mobile</span></h3>
+            <ul class="chips"><li>Flutter</li><li>Dart</li><li>Riverpod</li><li>Clean Architecture</li></ul>
+          </article>
+          <article class="skill-card card reveal" data-spotlight>
+            <h3 class="skill-title"><span class="skill-icon" aria-hidden="true">⇄</span><span data-i18n="skills.data">Dati e messaggistica</span></h3>
+            <ul class="chips"><li>PostgreSQL</li><li>Apache Kafka</li><li>RabbitMQ</li><li>Supabase</li><li>Outbox</li><li>Debezium</li></ul>
+          </article>
+          <article class="skill-card card reveal" data-spotlight>
+            <h3 class="skill-title"><span class="skill-icon" aria-hidden="true">∞</span><span data-i18n="skills.devops">DevOps e qualità</span></h3>
+            <ul class="chips"><li>Docker</li><li>GitHub Actions</li><li>SonarCloud</li><li>Grafana</li><li>Keycloak</li><li>Git</li></ul>
+          </article>
+          <article class="skill-card card reveal" data-spotlight>
+            <h3 class="skill-title"><span class="skill-icon" aria-hidden="true">◎</span><span data-i18n="skills.practice">Metodo</span></h3>
+            <ul class="chips"><li data-i18n="skills.m1">Test end-to-end</li><li data-i18n="skills.m2">Saga</li><li>CQRS</li><li>ADR</li><li data-i18n="skills.m3">Code review</li></ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONTACTO ============ -->
+    <section class="section section--contact" id="contact">
+      <div class="container">
+        <div class="contact-card card reveal" data-spotlight>
+          <p class="section-kicker">04</p>
+          <h2 class="section-title" data-i18n="contact.title">Lavoriamo insieme</h2>
+          <p class="contact-lead" data-i18n="contact.lead">Hai un progetto, un'idea o un'opportunità? Scrivimi: rispondo volentieri.</p>
+          <div class="contact-actions">
+            <a class="btn btn-primary" href="mailto:mlimber64@gmail.com"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16v12H4zM4 7l8 6 8-6"/></svg><span data-i18n="contact.email">Scrivimi una email</span></a>
+            <a class="btn btn-ghost" href="https://github.com/mlimber64" target="_blank" rel="noopener">GitHub</a>
+            <a class="btn btn-ghost" href="https://www.linkedin.com/in/limber-mendoza-tolentino-852771142/" target="_blank" rel="noopener">LinkedIn</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© <span id="year">2026</span> Limber Mendoza Tolentino · <span data-i18n="footer.built">Fatto a mano con HTML, CSS e JavaScript.</span></p>
+      <a href="#top" class="link-arrow" data-i18n="footer.top">Torna su</a>
+    </div>
+  </footer>
+
+  <script src="js/i18n.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
