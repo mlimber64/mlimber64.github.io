@@ -582,10 +582,10 @@ button { font: inherit; color: inherit; cursor: pointer; }
 .browser-frame img { width: 100%; height: auto; }
 
 /* Resto de proyectos */
-.project-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--sp-5); }
-.project:not(.project--feature) { display: flex; flex-direction: column; }
-.project:not(.project--feature) .project-body { display: flex; flex-direction: column; flex: 1; padding: var(--sp-5) var(--sp-6) var(--sp-6); }
-.project:not(.project--feature) .project-links { margin-top: auto; padding-top: var(--sp-5); }
+/* Tarjeta compacta (SmartBite): ilustración a la izquierda y texto a la derecha */
+.project--row { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.6fr); align-items: stretch; }
+.project--row .project-art { display: grid; align-items: center; padding: var(--sp-5); border-bottom: 0; border-right: 1px solid var(--border); }
+.project--row .project-body { padding: var(--sp-6); align-self: center; }
 .project-meta { margin-bottom: var(--sp-3); }
 .projects-more { margin-top: var(--sp-7); text-align: center; }
 
@@ -600,8 +600,6 @@ button { font: inherit; color: inherit; cursor: pointer; }
 }
 .project-art svg { width: 100%; height: auto; max-height: 170px; margin-inline: auto; }
 .project-art--smartbite { --art-a: rgba(52, 211, 153, 0.18); }
-.project-art--parla { --art-a: rgba(244, 114, 182, 0.17); }
-.project-art--peru { --art-a: rgba(217, 119, 6, 0.22); }
 
 /* EventHub: galería de capturas reales */
 .showcase { position: relative; }
@@ -655,45 +653,50 @@ button { font: inherit; color: inherit; cursor: pointer; }
 .project.is-visible .ring--c { stroke-dashoffset: 14; }
 .project.is-visible .bar { transform: scaleX(1); }
 
-/* Parla con me!: conversación */
-.bubble rect { stroke-width: 1; }
-.bubble text { font-family: var(--font-body); font-size: 12px; }
-.bubble--in rect { fill: rgba(148, 163, 184, 0.14); stroke: var(--border-strong); }
-.bubble--in text { fill: var(--text); }
-.bubble--out rect { fill: rgba(244, 114, 182, 0.2); stroke: rgba(244, 114, 182, 0.55); }
-.bubble--out text { fill: #fbcfe8; }
-.bubble { opacity: 0; transform: translateY(8px); transition: opacity 0.6s var(--ease), transform 0.6s var(--ease); }
-.project.is-visible .bubble--in { opacity: 1; transform: none; transition-delay: 0.2s; }
-.project.is-visible .bubble--out { opacity: 1; transform: none; transition-delay: 0.9s; }
-/* LingAI: los ocho idiomas aparecen uno tras otro */
-.lang-pills rect { fill: rgba(244, 114, 182, 0.1); stroke: rgba(244, 114, 182, 0.4); stroke-width: 1; }
-.lang-pills text { fill: #fbcfe8; font-family: var(--font-mono); font-size: 10px; font-weight: 500; text-anchor: middle; }
-.lang-pills g { opacity: 0; transform: translateY(6px); transition: opacity 0.5s var(--ease), transform 0.5s var(--ease); }
-.project.is-visible .lang-pills g { opacity: 1; transform: none; }
-.project.is-visible .lang-pills g:nth-child(1) { transition-delay: 1.4s; }
-.project.is-visible .lang-pills g:nth-child(2) { transition-delay: 1.5s; }
-.project.is-visible .lang-pills g:nth-child(3) { transition-delay: 1.6s; }
-.project.is-visible .lang-pills g:nth-child(4) { transition-delay: 1.7s; }
-.project.is-visible .lang-pills g:nth-child(5) { transition-delay: 1.8s; }
-.project.is-visible .lang-pills g:nth-child(6) { transition-delay: 1.9s; }
-.project.is-visible .lang-pills g:nth-child(7) { transition-delay: 2.0s; }
-.project.is-visible .lang-pills g:nth-child(8) { transition-delay: 2.1s; }
+/* Apps móviles (LingAI y Peru Eterno): móvil con capturas reales y pestañas */
+.phone-stage {
+  --stage-glow: rgba(34, 211, 238, 0.28);
+  position: relative;
+  display: grid;
+  place-items: center;
+  padding: var(--sp-6) var(--sp-5);
+  border-radius: var(--radius-lg);
+  background: radial-gradient(70% 60% at 50% 45%, var(--stage-glow), transparent 72%);
+}
+.phone-stage--ling { --stage-glow: rgba(52, 211, 153, 0.3); }
+.phone-stage--peru { --stage-glow: rgba(217, 119, 6, 0.34); }
 
-/* Peru Eterno: línea del tiempo con siete eras */
-.tl-line { stroke: rgba(251, 191, 36, 0.4); stroke-width: 2; stroke-dasharray: 300; stroke-dashoffset: 300; transition: stroke-dashoffset 1.6s var(--ease) 0.2s; }
-.tl-nodes circle { fill: #1a1208; stroke: var(--warn); stroke-width: 2; transform: scale(0); transform-box: fill-box; transform-origin: center; transition: transform 0.5s var(--ease); }
-.tl-peaks path { fill: rgba(217, 119, 6, 0.3); stroke: #d97706; stroke-width: 1.2; opacity: 0; transition: opacity 0.8s ease 1.2s; }
-.tl-cards rect { fill: rgba(251, 191, 36, 0.1); stroke: rgba(251, 191, 36, 0.4); opacity: 0; transition: opacity 0.8s ease 1.4s; }
-.project.is-visible .tl-line { stroke-dashoffset: 0; }
-.project.is-visible .tl-nodes circle { transform: scale(1); }
-.project.is-visible .tl-nodes circle:nth-child(1) { transition-delay: 0.3s; }
-.project.is-visible .tl-nodes circle:nth-child(2) { transition-delay: 0.45s; }
-.project.is-visible .tl-nodes circle:nth-child(3) { transition-delay: 0.6s; }
-.project.is-visible .tl-nodes circle:nth-child(4) { transition-delay: 0.75s; }
-.project.is-visible .tl-nodes circle:nth-child(5) { transition-delay: 0.9s; }
-.project.is-visible .tl-nodes circle:nth-child(6) { transition-delay: 1.05s; }
-.project.is-visible .tl-nodes circle:nth-child(7) { transition-delay: 1.2s; }
-.project.is-visible .tl-peaks path, .project.is-visible .tl-cards rect { opacity: 1; }
+.phone-device {
+  position: relative;
+  width: min(250px, 68%);
+  padding: 14px 9px 9px;   /* marco superior algo más alto: ahí va la cámara */
+  background: linear-gradient(160deg, #1b2438, #0a0f1c);
+  border: 1px solid var(--border-strong);
+  border-radius: 38px;
+  box-shadow: var(--shadow), 0 0 80px -24px var(--stage-glow);
+  transform: rotate(-2.5deg);
+  transition: transform 0.6s var(--ease);
+}
+.project--reverse .phone-device { transform: rotate(2.5deg); }
+.project--feature:hover .phone-device { transform: rotate(0deg) translateY(-4px); }
+.phone-device::before {   /* cámara frontal */
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 50%;
+  width: 8px;
+  height: 8px;
+  margin-left: -4px;
+  background: #05080f;
+  border-radius: 50%;
+  z-index: 2;
+  box-shadow: 0 0 0 2px rgba(148, 163, 184, 0.12);
+}
+.phone-screen { position: relative; aspect-ratio: 640 / 1334; overflow: hidden; border-radius: 30px; background: #0b1222; }
+/* Etiquetas flotantes: en los márgenes, nunca encima de la pantalla del móvil */
+.phone-stage .float-badge { z-index: 3; width: max-content; justify-self: start; white-space: nowrap; }
+.phone-stage .float-badge--a { top: 12%; right: 0; left: auto; justify-self: end; }
+.phone-stage .float-badge--c { bottom: 16%; left: 0; right: auto; }
 
 /* ---------- 10. COMPETENCIAS ---------- */
 .skills-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--sp-5); }
@@ -733,7 +736,6 @@ button { font: inherit; color: inherit; cursor: pointer; }
   .project--feature { grid-template-columns: 1fr; padding: var(--sp-6); }
   .browser-frame, .project--reverse .browser-frame { transform: none; }
   .project--reverse .project-body { order: -1; }   /* texto primero, como en el proyecto principal */
-  .project-grid { grid-template-columns: 1fr; }
   .skills-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
@@ -754,7 +756,8 @@ button { font: inherit; color: inherit; cursor: pointer; }
   }
   .site-header.is-open .main-nav { opacity: 1; transform: none; visibility: visible; }
   .nav-link { padding: var(--sp-4); font-size: var(--fs-md); }
-  .project-grid { grid-template-columns: 1fr; }
+  .project--row { grid-template-columns: 1fr; }
+  .project--row .project-art { border-right: 0; border-bottom: 1px solid var(--border); }
 }
 
 @media (max-width: 560px) {
@@ -766,7 +769,10 @@ button { font: inherit; color: inherit; cursor: pointer; }
   .hero-cta .btn, .contact-actions .btn { flex: 1 1 100%; }
   .float-badge--b { left: 0; } .float-badge--d { right: 0; }
   .project--feature { padding: var(--sp-5); }
-  .project:not(.project--feature) .project-body { padding: var(--sp-5); }
+  .project--row .project-body { padding: var(--sp-5); }
+  .phone-stage .float-badge { display: none; }   /* en pantallas estrechas taparían el móvil */
+  .phone-device { transform: none; }
+  .project--reverse .phone-device { transform: none; }
 }
 
 /* ---------- 15. MOVIMIENTO REDUCIDO (accesibilidad) ---------- */
@@ -776,9 +782,4 @@ button { font: inherit; color: inherit; cursor: pointer; }
   .js .reveal { opacity: 1; transform: none; }
   .ring--a { stroke-dashoffset: 28; } .ring--b { stroke-dashoffset: 52; } .ring--c { stroke-dashoffset: 14; }
   .bar { transform: scaleX(1); }
-  .bubble { opacity: 1; transform: none; }
-  .lang-pills g { opacity: 1; transform: none; }
-  .tl-line { stroke-dashoffset: 0; }
-  .tl-nodes circle { transform: scale(1); }
-  .tl-peaks path, .tl-cards rect { opacity: 1; }
 }

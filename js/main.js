@@ -4,7 +4,7 @@
  *   1. Idioma (i18n)          5. Cabecera, menú y progreso
  *   2. Efecto de escritura    6. Animaciones de entrada y contadores
  *   3. Fondo de partículas    7. Efectos de cursor (foco de luz e inclinación)
- *   4. Utilidades             8. Galería de capturas de EventHub
+ *   4. Utilidades             8. Galerías de capturas (EventHub, LingAI, Peru Eterno)
  */
 (function () {
   'use strict';
@@ -414,10 +414,13 @@
     }
   }
 
-  /* ------------------------------------------------------------------ 8. GALERÍA DE EVENTHUB */
+  /* ------------------------------------------------------------------ 8. GALERÍAS DE CAPTURAS */
+  // Cada tarjeta con data-showcase (EventHub, LingAI, Peru Eterno) tiene su propia galería
   function initShowcase() {
-    const root = $('#eventhub');
-    if (!root) return;
+    $$('[data-showcase]').forEach(setupShowcase);
+  }
+
+  function setupShowcase(root) {
     const images = $$('.showcase-img', root);
     const tabs = $$('.showcase-tab', root);
     if (!images.length || images.length !== tabs.length) return;

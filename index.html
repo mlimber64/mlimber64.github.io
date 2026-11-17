@@ -195,7 +195,7 @@
         </article>
 
         <!-- Segundo proyecto principal: EventHub, con galería de capturas reales -->
-        <article class="project project--feature project--reverse card reveal" data-spotlight id="eventhub">
+        <article class="project project--feature project--reverse card reveal" data-spotlight data-showcase id="eventhub">
           <div class="project-media">
             <div class="showcase" id="showcase">
               <div class="browser-frame">
@@ -241,100 +241,124 @@
           </div>
         </article>
 
-        <div class="project-grid">
-          <!-- SmartBite AI -->
-          <article class="project card reveal" data-spotlight>
-            <div class="project-art project-art--smartbite" aria-hidden="true">
-              <svg viewBox="0 0 320 150" fill="none">
-                <circle class="ring-bg" cx="95" cy="75" r="48"/>
-                <circle class="ring ring--a" cx="95" cy="75" r="48" pathLength="100"/>
-                <circle class="ring-bg" cx="95" cy="75" r="32"/>
-                <circle class="ring ring--b" cx="95" cy="75" r="32" pathLength="100"/>
-                <circle class="ring-bg" cx="95" cy="75" r="16"/>
-                <circle class="ring ring--c" cx="95" cy="75" r="16" pathLength="100"/>
-                <g class="art-bars">
-                  <rect x="190" y="45" width="100" height="10" rx="5" class="bar-bg"/><rect x="190" y="45" width="72" height="10" rx="5" class="bar bar--a"/>
-                  <rect x="190" y="72" width="100" height="10" rx="5" class="bar-bg"/><rect x="190" y="72" width="48" height="10" rx="5" class="bar bar--b"/>
-                  <rect x="190" y="99" width="100" height="10" rx="5" class="bar-bg"/><rect x="190" y="99" width="86" height="10" rx="5" class="bar bar--c"/>
-                </g>
-              </svg>
+        <!-- LingAI (repo app-multidiomas): tutor de idiomas con IA, con capturas reales del móvil -->
+        <article class="project project--feature card reveal" data-spotlight data-showcase id="lingai">
+          <div class="project-body">
+            <p class="project-meta"><span class="badge badge--public" data-i18n="projects.public">Codice pubblico</span></p>
+            <h3 class="project-title">LingAI</h3>
+            <p class="project-tagline" data-i18n="p4.tagline">Tutor di lingue con intelligenza artificiale</p>
+            <p class="project-desc" data-i18n="p4.desc">Tutor di lingue con intelligenza artificiale per Android: otto lingue da imparare, tra cui il quechua del sud, interfaccia in italiano, inglese e spagnolo, e conversazione con l'insegnante IA basata su Gemini.</p>
+            <ul class="project-points">
+              <li data-i18n="p4.f1">Conversazione con un insegnante IA basato su Gemini, con correzioni e traduzione</li>
+              <li data-i18n="p4.f2">Memoria dell'apprendimento: errori ricorrenti, argomenti di grammatica e parole da consolidare</li>
+              <li data-i18n="p4.f3">Architettura a livelli con Riverpod e go_router; i dati restano sul dispositivo</li>
+            </ul>
+            <ul class="chips" aria-label="Stack">
+              <li>Flutter</li><li>Riverpod</li><li>go_router</li><li>Gemini API</li><li>l10n IT/EN/ES</li>
+            </ul>
+            <div class="project-links">
+              <a class="btn btn-primary" href="https://github.com/mlimber64/app-multidiomas" target="_blank" rel="noopener"><span data-i18n="projects.code">Codice su GitHub</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
             </div>
-            <div class="project-body">
-              <p class="project-meta"><span class="badge badge--private" data-i18n="projects.private">Repository privato</span></p>
-              <h3 class="project-title">SmartBite AI</h3>
-              <p class="project-desc" data-i18n="p3.desc">App fitness intelligente: scansione dei pasti con l'IA, controllo nutrizionale e del budget. Clean Architecture feature-first: il backend (Supabase) si può sostituire senza toccare l'interfaccia.</p>
-              <ul class="chips" aria-label="Stack">
-                <li>Flutter</li><li>Riverpod</li><li>get_it</li><li>Supabase</li><li>Clean Architecture</li>
-              </ul>
-            </div>
-          </article>
+          </div>
 
-          <!-- LingAI (repo app-multidiomas): tutor de idiomas con IA -->
-          <article class="project card reveal" data-spotlight>
-            <div class="project-art project-art--parla" aria-hidden="true">
-              <svg viewBox="0 0 320 150" fill="none">
-                <g class="bubble bubble--in">
-                  <rect x="20" y="10" width="160" height="34" rx="14"/><text x="36" y="32">Ciao! Come stai?</text>
-                </g>
-                <g class="bubble bubble--out">
-                  <rect x="110" y="54" width="190" height="34" rx="14"/><text x="126" y="76">Bien, gracias. ¿Y tú?</text>
-                </g>
-                <!-- Los ocho idiomas que se pueden aprender -->
-                <g class="lang-pills">
-                  <g><rect x="11" y="108" width="32" height="20" rx="10"/><text x="27" y="122">IT</text></g>
-                  <g><rect x="49" y="108" width="32" height="20" rx="10"/><text x="65" y="122">EN</text></g>
-                  <g><rect x="87" y="108" width="32" height="20" rx="10"/><text x="103" y="122">ES</text></g>
-                  <g><rect x="125" y="108" width="32" height="20" rx="10"/><text x="141" y="122">FR</text></g>
-                  <g><rect x="163" y="108" width="32" height="20" rx="10"/><text x="179" y="122">PT</text></g>
-                  <g><rect x="201" y="108" width="32" height="20" rx="10"/><text x="217" y="122">DE</text></g>
-                  <g><rect x="239" y="108" width="32" height="20" rx="10"/><text x="255" y="122">ZH</text></g>
-                  <g><rect x="277" y="108" width="32" height="20" rx="10"/><text x="293" y="122">QU</text></g>
-                </g>
-              </svg>
-            </div>
-            <div class="project-body">
-              <p class="project-meta"><span class="badge badge--public" data-i18n="projects.public">Codice pubblico</span></p>
-              <h3 class="project-title">LingAI</h3>
-              <p class="project-desc" data-i18n="p4.desc">Tutor di lingue con intelligenza artificiale per Android: otto lingue da imparare, tra cui il quechua del sud, interfaccia in italiano, inglese e spagnolo, e conversazione con l'insegnante IA basata su Gemini.</p>
-              <ul class="chips" aria-label="Stack">
-                <li>Flutter</li><li>Riverpod</li><li>go_router</li><li>Gemini API</li><li>l10n IT/EN/ES</li>
-              </ul>
-              <div class="project-links">
-                <a class="link-arrow" href="https://github.com/mlimber64/app-multidiomas" target="_blank" rel="noopener"><span data-i18n="projects.code">Codice su GitHub</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+          <div class="project-media">
+            <div class="phone-stage phone-stage--ling">
+              <div class="phone-device">
+                <div class="phone-screen">
+                  <img class="showcase-img is-active" data-shot="0" src="assets/mobile/lingai-inicio.webp" width="640" height="1334" decoding="async"
+                       alt="Home di LingAI con la pratica del giorno e gli accessi a conversazione, apprendimento, ripasso e parole" data-i18n-attr="alt:ling.alt1">
+                  <img class="showcase-img" data-shot="1" src="assets/mobile/lingai-hablar.webp" width="640" height="1334" loading="lazy" decoding="async"
+                       alt="Conversazione con l'insegnante IA, con traduzione e pulsanti per l'ascolto" data-i18n-attr="alt:ling.alt2">
+                  <img class="showcase-img" data-shot="2" src="assets/mobile/lingai-idiomas.webp" width="640" height="1334" loading="lazy" decoding="async"
+                       alt="Selettore della lingua che si vuole imparare" data-i18n-attr="alt:ling.alt3">
+                  <img class="showcase-img" data-shot="3" src="assets/mobile/lingai-aprender.webp" width="640" height="1334" loading="lazy" decoding="async"
+                       alt="Schermata Impara con le aree da rinforzare" data-i18n-attr="alt:ling.alt4">
+                </div>
               </div>
+              <span class="float-badge float-badge--a" aria-hidden="true">Gemini</span>
+              <span class="float-badge float-badge--c" aria-hidden="true" data-i18n="ling.badge">8 lingue</span>
             </div>
-          </article>
+            <div class="showcase-tabs" role="group" aria-label="Schermate" data-i18n-attr="aria-label:ling.tabs">
+              <button type="button" class="showcase-tab is-active" data-shot="0" aria-pressed="true" data-i18n="ling.tab1">Home</button>
+              <button type="button" class="showcase-tab" data-shot="1" aria-pressed="false" data-i18n="ling.tab2">Conversazione</button>
+              <button type="button" class="showcase-tab" data-shot="2" aria-pressed="false" data-i18n="ling.tab3">Lingue</button>
+              <button type="button" class="showcase-tab" data-shot="3" aria-pressed="false" data-i18n="ling.tab4">Impara</button>
+            </div>
+            <p class="showcase-note" data-i18n="mob.note">Schermate dell'app in spagnolo; l'interfaccia è disponibile anche in italiano e in inglese.</p>
+          </div>
+        </article>
 
-          <!-- Peru Eterno -->
-          <article class="project card reveal" data-spotlight>
-            <div class="project-art project-art--peru" aria-hidden="true">
-              <svg viewBox="0 0 320 150" fill="none">
-                <path class="tl-line" d="M24 75 H296"/>
-                <g class="tl-nodes">
-                  <circle cx="30" cy="75" r="8"/><circle cx="75" cy="75" r="8"/><circle cx="120" cy="75" r="8"/><circle cx="165" cy="75" r="8"/>
-                  <circle cx="210" cy="75" r="8"/><circle cx="255" cy="75" r="8"/><circle cx="294" cy="75" r="8"/>
-                </g>
-                <g class="tl-peaks">
-                  <path d="M60 52 L75 30 L90 52Z"/><path d="M150 52 L165 24 L180 52Z"/><path d="M240 52 L255 34 L270 52Z"/>
-                </g>
-                <g class="tl-cards">
-                  <rect x="48" y="96" width="54" height="26" rx="6"/><rect x="138" y="96" width="54" height="26" rx="6"/><rect x="228" y="96" width="54" height="26" rx="6"/>
-                </g>
-              </svg>
-            </div>
-            <div class="project-body">
-              <p class="project-meta"><span class="badge badge--public" data-i18n="projects.public">Codice pubblico</span></p>
-              <h3 class="project-title">Peru Eterno</h3>
-              <p class="project-desc" data-i18n="p5.desc">App mobile Flutter dedicata alla storia e alla cultura peruviana: sette ere storiche su una linea del tempo, interfaccia trilingue (IT/ES/EN) e modello freemium.</p>
-              <ul class="chips" aria-label="Stack">
-                <li>Flutter</li><li>Dart</li><li>i18n IT/ES/EN</li><li>Freemium</li>
-              </ul>
-              <div class="project-links">
-                <a class="link-arrow" href="https://github.com/mlimber64/peru-eterno" target="_blank" rel="noopener"><span data-i18n="projects.code">Codice su GitHub</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+        <!-- Peru Eterno: capturas reales del móvil -->
+        <article class="project project--feature project--reverse card reveal" data-spotlight data-showcase id="peru">
+          <div class="project-media">
+            <div class="phone-stage phone-stage--peru">
+              <div class="phone-device">
+                <div class="phone-screen">
+                  <img class="showcase-img is-active" data-shot="0" src="assets/mobile/peru-explorar.webp" width="640" height="1334" decoding="async"
+                       alt="Esplora: le tappe storiche del Perù con fotografie" data-i18n-attr="alt:peru.alt1">
+                  <img class="showcase-img" data-shot="1" src="assets/mobile/peru-mapa.webp" width="640" height="1334" loading="lazy" decoding="async"
+                       alt="Mappa culturale del Perù con i punti di interesse" data-i18n-attr="alt:peru.alt2">
+                  <img class="showcase-img" data-shot="2" src="assets/mobile/peru-etapa.webp" width="640" height="1334" loading="lazy" decoding="async"
+                       alt="Dettaglio della tappa Perù preispanico con i suoi articoli" data-i18n-attr="alt:peru.alt3">
+                </div>
               </div>
+              <span class="float-badge float-badge--a" aria-hidden="true">Flutter</span>
+              <span class="float-badge float-badge--c" aria-hidden="true">IT · ES · EN</span>
             </div>
-          </article>
-        </div>
+            <div class="showcase-tabs" role="group" aria-label="Schermate" data-i18n-attr="aria-label:peru.tabs">
+              <button type="button" class="showcase-tab is-active" data-shot="0" aria-pressed="true" data-i18n="peru.tab1">Esplora</button>
+              <button type="button" class="showcase-tab" data-shot="1" aria-pressed="false" data-i18n="peru.tab2">Mappa</button>
+              <button type="button" class="showcase-tab" data-shot="2" aria-pressed="false" data-i18n="peru.tab3">Tappa</button>
+            </div>
+            <p class="showcase-note" data-i18n="mob.note">Schermate dell'app in spagnolo; l'interfaccia è disponibile anche in italiano e in inglese.</p>
+          </div>
+
+          <div class="project-body">
+            <p class="project-meta"><span class="badge badge--public" data-i18n="projects.public">Codice pubblico</span></p>
+            <h3 class="project-title">Peru Eterno</h3>
+            <p class="project-tagline" data-i18n="p5.tagline">La storia e la cultura del Perù in tasca</p>
+            <p class="project-desc" data-i18n="p5.desc">App mobile Flutter dedicata alla storia e alla cultura peruviana: cinque tappe storiche con articoli, mappa culturale, personaggi, tradizioni e gastronomia, interfaccia trilingue (IT/ES/EN) e modello freemium.</p>
+            <ul class="project-points">
+              <li data-i18n="p5.f1">Cinque tappe storiche, con articoli, mappa culturale e linea del tempo</li>
+              <li data-i18n="p5.f2">«Storia del giorno» con serie di giorni e un'avventura interattiva da chasqui inca</li>
+              <li data-i18n="p5.f3">Interfaccia in italiano, spagnolo e inglese; contenuti gratuiti e premium</li>
+            </ul>
+            <ul class="chips" aria-label="Stack">
+              <li>Flutter</li><li>Dart</li><li>Supabase</li><li>SQLite</li><li>i18n IT/ES/EN</li><li>Freemium</li>
+            </ul>
+            <div class="project-links">
+              <a class="btn btn-primary" href="https://github.com/mlimber64/peru-eterno" target="_blank" rel="noopener"><span data-i18n="projects.code">Codice su GitHub</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+            </div>
+          </div>
+        </article>
+
+        <!-- SmartBite AI: tarjeta compacta (sin capturas: el app está en desarrollo y la cuenta de prueba está vacía) -->
+        <article class="project project--row card reveal" data-spotlight>
+          <div class="project-art project-art--smartbite" aria-hidden="true">
+            <svg viewBox="0 0 320 150" fill="none">
+              <circle class="ring-bg" cx="95" cy="75" r="48"/>
+              <circle class="ring ring--a" cx="95" cy="75" r="48" pathLength="100"/>
+              <circle class="ring-bg" cx="95" cy="75" r="32"/>
+              <circle class="ring ring--b" cx="95" cy="75" r="32" pathLength="100"/>
+              <circle class="ring-bg" cx="95" cy="75" r="16"/>
+              <circle class="ring ring--c" cx="95" cy="75" r="16" pathLength="100"/>
+              <g class="art-bars">
+                <rect x="190" y="45" width="100" height="10" rx="5" class="bar-bg"/><rect x="190" y="45" width="72" height="10" rx="5" class="bar bar--a"/>
+                <rect x="190" y="72" width="100" height="10" rx="5" class="bar-bg"/><rect x="190" y="72" width="48" height="10" rx="5" class="bar bar--b"/>
+                <rect x="190" y="99" width="100" height="10" rx="5" class="bar-bg"/><rect x="190" y="99" width="86" height="10" rx="5" class="bar bar--c"/>
+              </g>
+            </svg>
+          </div>
+          <div class="project-body">
+            <p class="project-meta"><span class="badge badge--private" data-i18n="projects.private">Repository privato</span></p>
+            <h3 class="project-title">SmartBite AI</h3>
+            <p class="project-desc" data-i18n="p3.desc">App fitness intelligente: scansione dei pasti con l'IA, controllo nutrizionale e del budget. Clean Architecture feature-first: il backend (Supabase) si può sostituire senza toccare l'interfaccia.</p>
+            <ul class="chips" aria-label="Stack">
+              <li>Flutter</li><li>Riverpod</li><li>get_it</li><li>Supabase</li><li>Clean Architecture</li>
+            </ul>
+          </div>
+        </article>
+
 
         <p class="projects-more reveal">
           <a class="link-arrow" href="https://github.com/mlimber64?tab=repositories" target="_blank" rel="noopener"><span data-i18n="projects.more">Tutti i repository su GitHub</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
