@@ -4,7 +4,7 @@
  *   1. Idioma (i18n)          5. Cabecera, menú y progreso
  *   2. Efecto de escritura    6. Animaciones de entrada y contadores
  *   3. Fondo de partículas    7. Efectos de cursor (foco de luz e inclinación)
- *   4. Utilidades
+ *   4. Utilidades             8. Galería de capturas de EventHub
  */
 (function () {
   'use strict';
@@ -414,6 +414,56 @@
     }
   }
 
+  /* ------------------------------------------------------------------ 8. GALERÍA DE EVENTHUB */
+  function initShowcase() {
+    const root = $('#eventhub');
+    if (!root) return;
+    const images = $$('.showcase-img', root);
+    const tabs = $$('.showcase-tab', root);
+    if (!images.length || images.length !== tabs.length) return;
+
+    const AUTOPLAY_MS = 5000;
+    let current = 0;
+    let timer = null;
+    let userChose = false;   // si el visitante elige una pantalla, se acaba la rotación automática
+    let isVisible = false;
+    let isHovered = false;
+
+    function show(index) {
+      current = (index + images.length) % images.length;
+      images.forEach((img, i) => img.classList.toggle('is-active', i === current));
+      tabs.forEach((tab, i) => {
+        tab.classList.toggle('is-active', i === current);
+        tab.setAttribute('aria-pressed', String(i === current));
+      });
+    }
+
+    function stop() { window.clearInterval(timer); timer = null; }
+    function start() {
+      stop();
+      if (prefersReducedMotion || userChose || !isVisible || isHovered) return;
+      timer = window.setInterval(() => show(current + 1), AUTOPLAY_MS);
+    }
+
+    tabs.forEach((tab, i) => {
+      tab.addEventListener('click', () => { userChose = true; show(i); stop(); });
+    });
+
+    // Pausa al pasar el cursor o al enfocar con teclado
+    root.addEventListener('pointerenter', () => { isHovered = true; stop(); });
+    root.addEventListener('pointerleave', () => { isHovered = false; start(); });
+    root.addEventListener('focusin', () => { isHovered = true; stop(); });
+    root.addEventListener('focusout', () => { isHovered = false; start(); });
+
+    // Solo rota mientras la tarjeta está en pantalla
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver((entries) => {
+        isVisible = entries[0].isIntersecting;
+        start();
+      }, { threshold: 0.35 }).observe(root);
+    }
+  }
+
   /* ------------------------------------------------------------------ ARRANQUE */
   function init() {
     const year = $('#year');
@@ -424,6 +474,7 @@
     initHeader();
     initReveal();
     initPointerEffects();
+    initShowcase();
   }
 
   if (document.readyState === 'loading') {

@@ -194,32 +194,54 @@
           </div>
         </article>
 
-        <div class="project-grid">
-          <!-- EventHub -->
-          <article class="project card reveal" data-spotlight>
-            <div class="project-art project-art--eventhub" aria-hidden="true">
-              <svg viewBox="0 0 320 150" fill="none">
-                <g class="art-lines" stroke-width="1.5">
-                  <path d="M160 75 L60 30"/><path d="M160 75 L60 120"/><path d="M160 75 L260 30"/><path d="M160 75 L260 120"/><path d="M160 75 L160 20"/>
-                </g>
-                <circle class="art-hub" cx="160" cy="75" r="20"/>
-                <circle class="art-node" cx="60" cy="30" r="11"/><circle class="art-node" cx="60" cy="120" r="11"/>
-                <circle class="art-node" cx="260" cy="30" r="11"/><circle class="art-node" cx="260" cy="120" r="11"/>
-                <circle class="art-node" cx="160" cy="20" r="11"/>
-                <circle class="art-dot art-dot--1" r="3"/><circle class="art-dot art-dot--2" r="3"/><circle class="art-dot art-dot--3" r="3"/>
-                <text x="160" y="79" text-anchor="middle" class="art-text">MQ</text>
-              </svg>
+        <!-- Segundo proyecto principal: EventHub, con galería de capturas reales -->
+        <article class="project project--feature project--reverse card reveal" data-spotlight id="eventhub">
+          <div class="project-media">
+            <div class="showcase" id="showcase">
+              <div class="browser-frame">
+                <div class="browser-bar"><i></i><i></i><i></i><span>localhost:4200</span></div>
+                <div class="showcase-stage">
+                  <img class="showcase-img is-active" data-shot="0" src="assets/eventhub/catalogo.webp" width="1280" height="800" decoding="async"
+                       alt="Catalogo di EventHub con filtri per categoria e otto eventi" data-i18n-attr="alt:eh.alt1">
+                  <img class="showcase-img" data-shot="1" src="assets/eventhub/pago.webp" width="1280" height="800" loading="lazy" decoding="async"
+                       alt="Pagamento con conto alla rovescia di dieci minuti e carte di prova" data-i18n-attr="alt:eh.alt2">
+                  <img class="showcase-img" data-shot="2" src="assets/eventhub/rechazado.webp" width="1280" height="800" loading="lazy" decoding="async"
+                       alt="Pagamento rifiutato dalla banca con tentativi rimasti" data-i18n-attr="alt:eh.alt3">
+                  <img class="showcase-img" data-shot="3" src="assets/eventhub/organizador.webp" width="1280" height="800" loading="lazy" decoding="async"
+                       alt="Pannello dell'organizzatore con l'elenco degli eventi" data-i18n-attr="alt:eh.alt4">
+                </div>
+              </div>
+              <!-- Móvil superpuesto: el frontend es responsive -->
+              <div class="phone-frame" aria-hidden="true">
+                <img src="assets/eventhub/movil-evento.webp" width="480" height="1039" loading="lazy" decoding="async" alt="">
+              </div>
             </div>
-            <div class="project-body">
-              <p class="project-meta"><span class="badge badge--private" data-i18n="projects.private">Repository privato</span></p>
-              <h3 class="project-title">EventHub</h3>
-              <p class="project-desc" data-i18n="p2.desc">Piattaforma per prenotare e vendere biglietti di eventi, a microservizi con .NET 9, PostgreSQL e RabbitMQ. L'acquisto attraversa quattro servizi e si risolve con una saga, Outbox/Inbox e rimborsi compensativi.</p>
-              <ul class="chips" aria-label="Stack">
-                <li>.NET 9</li><li>RabbitMQ</li><li>PostgreSQL</li><li>Angular</li><li>YARP</li><li>MediatR</li>
-              </ul>
+            <div class="showcase-tabs" role="group" aria-label="Schermate" data-i18n-attr="aria-label:eh.tabs">
+              <button type="button" class="showcase-tab is-active" data-shot="0" aria-pressed="true" data-i18n="eh.tab1">Catalogo</button>
+              <button type="button" class="showcase-tab" data-shot="1" aria-pressed="false" data-i18n="eh.tab2">Pagamento</button>
+              <button type="button" class="showcase-tab" data-shot="2" aria-pressed="false" data-i18n="eh.tab3">Pagamento rifiutato</button>
+              <button type="button" class="showcase-tab" data-shot="3" aria-pressed="false" data-i18n="eh.tab4">Organizzatore</button>
             </div>
-          </article>
+            <p class="showcase-note" data-i18n="eh.note">Interfaccia dell'app in spagnolo. I pagamenti sono simulati.</p>
+          </div>
 
+          <div class="project-body">
+            <p class="project-meta"><span class="badge badge--private" data-i18n="projects.private">Repository privato</span></p>
+            <h3 class="project-title">EventHub</h3>
+            <p class="project-tagline" data-i18n="p2.tagline">Prenotazione e vendita di biglietti con microservizi .NET</p>
+            <p class="project-desc" data-i18n="p2.desc">Piattaforma per prenotare e vendere biglietti di eventi, a microservizi con .NET 9, PostgreSQL e RabbitMQ. L'acquisto attraversa quattro servizi con database diversi e si risolve con una saga, Outbox/Inbox e rimborsi compensativi.</p>
+            <ul class="project-points">
+              <li data-i18n="p2.f1">Saga di acquisto con rimborsi compensativi, coperta da test end-to-end</li>
+              <li data-i18n="p2.f2">Cinque servizi con database separati e Gateway YARP con rate limiting</li>
+              <li data-i18n="p2.f3">JWT con refresh token rotanti, CQRS con MediatR e CI su GitHub Actions</li>
+            </ul>
+            <ul class="chips" aria-label="Stack">
+              <li>.NET 9</li><li>RabbitMQ</li><li>PostgreSQL</li><li>Angular</li><li>YARP</li><li>Docker</li>
+            </ul>
+          </div>
+        </article>
+
+        <div class="project-grid">
           <!-- SmartBite AI -->
           <article class="project card reveal" data-spotlight>
             <div class="project-art project-art--smartbite" aria-hidden="true">
@@ -247,25 +269,35 @@
             </div>
           </article>
 
-          <!-- Parla con me! (app-multidiomas) -->
+          <!-- LingAI (repo app-multidiomas): tutor de idiomas con IA -->
           <article class="project card reveal" data-spotlight>
             <div class="project-art project-art--parla" aria-hidden="true">
               <svg viewBox="0 0 320 150" fill="none">
                 <g class="bubble bubble--in">
-                  <rect x="30" y="24" width="150" height="38" rx="14"/><text x="46" y="48">Ciao! Come stai?</text>
+                  <rect x="20" y="10" width="160" height="34" rx="14"/><text x="36" y="32">Ciao! Come stai?</text>
                 </g>
                 <g class="bubble bubble--out">
-                  <rect x="120" y="70" width="170" height="38" rx="14"/><text x="136" y="94">Bene, grazie. E tu?</text>
+                  <rect x="110" y="54" width="190" height="34" rx="14"/><text x="126" y="76">Bien, gracias. ¿Y tú?</text>
                 </g>
-                <g class="typing"><circle cx="46" cy="130" r="3.5"/><circle cx="60" cy="130" r="3.5"/><circle cx="74" cy="130" r="3.5"/></g>
+                <!-- Los ocho idiomas que se pueden aprender -->
+                <g class="lang-pills">
+                  <g><rect x="11" y="108" width="32" height="20" rx="10"/><text x="27" y="122">IT</text></g>
+                  <g><rect x="49" y="108" width="32" height="20" rx="10"/><text x="65" y="122">EN</text></g>
+                  <g><rect x="87" y="108" width="32" height="20" rx="10"/><text x="103" y="122">ES</text></g>
+                  <g><rect x="125" y="108" width="32" height="20" rx="10"/><text x="141" y="122">FR</text></g>
+                  <g><rect x="163" y="108" width="32" height="20" rx="10"/><text x="179" y="122">PT</text></g>
+                  <g><rect x="201" y="108" width="32" height="20" rx="10"/><text x="217" y="122">DE</text></g>
+                  <g><rect x="239" y="108" width="32" height="20" rx="10"/><text x="255" y="122">ZH</text></g>
+                  <g><rect x="277" y="108" width="32" height="20" rx="10"/><text x="293" y="122">QU</text></g>
+                </g>
               </svg>
             </div>
             <div class="project-body">
               <p class="project-meta"><span class="badge badge--public" data-i18n="projects.public">Codice pubblico</span></p>
-              <h3 class="project-title">Parla con me!</h3>
-              <p class="project-desc" data-i18n="p4.desc">Tutor di italiano con intelligenza artificiale per Android: conversazione testuale con l'insegnante IA basata su Gemini. La chiave API non entra mai nel repository.</p>
+              <h3 class="project-title">LingAI</h3>
+              <p class="project-desc" data-i18n="p4.desc">Tutor di lingue con intelligenza artificiale per Android: otto lingue da imparare, tra cui il quechua del sud, interfaccia in italiano, inglese e spagnolo, e conversazione con l'insegnante IA basata su Gemini.</p>
               <ul class="chips" aria-label="Stack">
-                <li>Flutter</li><li>Dart</li><li>Gemini API</li>
+                <li>Flutter</li><li>Riverpod</li><li>go_router</li><li>Gemini API</li><li>l10n IT/EN/ES</li>
               </ul>
               <div class="project-links">
                 <a class="link-arrow" href="https://github.com/mlimber64/app-multidiomas" target="_blank" rel="noopener"><span data-i18n="projects.code">Codice su GitHub</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>

@@ -554,6 +554,7 @@ button { font: inherit; color: inherit; cursor: pointer; }
 
 /* Proyecto principal */
 .project--feature { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); gap: var(--sp-7); align-items: center; padding: var(--sp-7); margin-bottom: var(--sp-6); }
+.project--reverse { grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); }
 .project--feature .project-title { font-size: clamp(1.9rem, 1.4rem + 2vw, 2.75rem); }
 .project--feature .project-desc { font-size: var(--fs-md); }
 .project-flag { display: inline-block; margin-bottom: var(--sp-3); padding: 4px 12px; border-radius: 999px; background: var(--gradient); color: #04141c; font-family: var(--font-mono); font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; }
@@ -581,7 +582,7 @@ button { font: inherit; color: inherit; cursor: pointer; }
 .browser-frame img { width: 100%; height: auto; }
 
 /* Resto de proyectos */
-.project-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--sp-6); }
+.project-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--sp-5); }
 .project:not(.project--feature) { display: flex; flex-direction: column; }
 .project:not(.project--feature) .project-body { display: flex; flex-direction: column; flex: 1; padding: var(--sp-5) var(--sp-6) var(--sp-6); }
 .project:not(.project--feature) .project-links { margin-top: auto; padding-top: var(--sp-5); }
@@ -598,24 +599,49 @@ button { font: inherit; color: inherit; cursor: pointer; }
   border-bottom: 1px solid var(--border);
 }
 .project-art svg { width: 100%; height: auto; max-height: 170px; margin-inline: auto; }
-.project-art--eventhub { --art-a: rgba(34, 211, 238, 0.18); }
 .project-art--smartbite { --art-a: rgba(52, 211, 153, 0.18); }
 .project-art--parla { --art-a: rgba(244, 114, 182, 0.17); }
 .project-art--peru { --art-a: rgba(217, 119, 6, 0.22); }
 
-/* EventHub: red de servicios con mensajes viajando */
-.art-lines { stroke: var(--border-strong); }
-.art-hub { fill: rgba(34, 211, 238, 0.16); stroke: var(--accent); stroke-width: 1.5; }
-.art-node { fill: rgba(139, 92, 246, 0.2); stroke: var(--accent-2); stroke-width: 1.5; }
-.art-text { fill: var(--accent); font-family: var(--font-mono); font-size: 10px; font-weight: 600; }
-.art-dot { fill: var(--accent-3); opacity: 0; }
-@supports (offset-path: path("M0 0 L10 10")) {
-  .art-dot { opacity: 1; animation: travel 3.2s linear infinite; }
-  .art-dot--1 { offset-path: path("M160 75 L60 30"); }
-  .art-dot--2 { offset-path: path("M160 75 L260 120"); animation-delay: -1.1s; }
-  .art-dot--3 { offset-path: path("M160 75 L160 20"); animation-delay: -2.2s; }
+/* EventHub: galería de capturas reales */
+.showcase { position: relative; }
+.showcase-stage { position: relative; aspect-ratio: 1280 / 800; background: #e9ece8; }
+.showcase-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 0.6s var(--ease); }
+.showcase-img.is-active { opacity: 1; }
+.project--reverse .browser-frame { transform: rotateY(6deg) rotateX(3deg); }
+.project--reverse:hover .browser-frame { transform: rotateY(0) rotateX(0) scale(1.01); }
+
+/* Móvil superpuesto sobre la ventana de navegador */
+.phone-frame {
+  position: absolute;
+  right: -3%;
+  bottom: -4%;
+  width: 24%;
+  border: 5px solid #0b1222;
+  border-radius: 22px;
+  overflow: hidden;
+  background: #0b1222;
+  box-shadow: var(--shadow), 0 0 0 1px var(--border-strong);
+  transform: translateY(0);
+  animation: float 7s ease-in-out infinite;
 }
-@keyframes travel { from { offset-distance: 0%; } to { offset-distance: 100%; } }
+.phone-frame img { width: 100%; height: auto; }
+
+.showcase-tabs { display: flex; flex-wrap: wrap; gap: var(--sp-2); margin-top: var(--sp-6); }
+.showcase-tab {
+  min-height: 38px;
+  padding: 0 var(--sp-4);
+  background: rgba(148, 163, 184, 0.08);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  font-size: var(--fs-xs);
+  font-weight: 500;
+  color: var(--text-muted);
+  transition: color var(--dur-fast), background var(--dur-fast), border-color var(--dur-fast), transform var(--dur-fast) var(--ease);
+}
+.showcase-tab:hover { color: var(--text); border-color: var(--accent); transform: translateY(-2px); }
+.showcase-tab[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: #04222a; font-weight: 600; }
+.showcase-note { margin-top: var(--sp-3); font-size: var(--fs-xs); color: var(--text-faint); }
 
 /* SmartBite: anillos y barras de progreso */
 .ring-bg { stroke: rgba(148, 163, 184, 0.14); stroke-width: 8; }
@@ -639,10 +665,19 @@ button { font: inherit; color: inherit; cursor: pointer; }
 .bubble { opacity: 0; transform: translateY(8px); transition: opacity 0.6s var(--ease), transform 0.6s var(--ease); }
 .project.is-visible .bubble--in { opacity: 1; transform: none; transition-delay: 0.2s; }
 .project.is-visible .bubble--out { opacity: 1; transform: none; transition-delay: 0.9s; }
-.typing circle { fill: var(--text-muted); animation: bounce 1.2s ease-in-out infinite; }
-.typing circle:nth-child(2) { animation-delay: 0.15s; }
-.typing circle:nth-child(3) { animation-delay: 0.3s; }
-@keyframes bounce { 0%, 60%, 100% { transform: translateY(0); opacity: 0.5; } 30% { transform: translateY(-5px); opacity: 1; } }
+/* LingAI: los ocho idiomas aparecen uno tras otro */
+.lang-pills rect { fill: rgba(244, 114, 182, 0.1); stroke: rgba(244, 114, 182, 0.4); stroke-width: 1; }
+.lang-pills text { fill: #fbcfe8; font-family: var(--font-mono); font-size: 10px; font-weight: 500; text-anchor: middle; }
+.lang-pills g { opacity: 0; transform: translateY(6px); transition: opacity 0.5s var(--ease), transform 0.5s var(--ease); }
+.project.is-visible .lang-pills g { opacity: 1; transform: none; }
+.project.is-visible .lang-pills g:nth-child(1) { transition-delay: 1.4s; }
+.project.is-visible .lang-pills g:nth-child(2) { transition-delay: 1.5s; }
+.project.is-visible .lang-pills g:nth-child(3) { transition-delay: 1.6s; }
+.project.is-visible .lang-pills g:nth-child(4) { transition-delay: 1.7s; }
+.project.is-visible .lang-pills g:nth-child(5) { transition-delay: 1.8s; }
+.project.is-visible .lang-pills g:nth-child(6) { transition-delay: 1.9s; }
+.project.is-visible .lang-pills g:nth-child(7) { transition-delay: 2.0s; }
+.project.is-visible .lang-pills g:nth-child(8) { transition-delay: 2.1s; }
 
 /* Peru Eterno: línea del tiempo con siete eras */
 .tl-line { stroke: rgba(251, 191, 36, 0.4); stroke-width: 2; stroke-dasharray: 300; stroke-dashoffset: 300; transition: stroke-dashoffset 1.6s var(--ease) 0.2s; }
@@ -696,7 +731,9 @@ button { font: inherit; color: inherit; cursor: pointer; }
   .scroll-hint { display: none; }
   .about-grid { grid-template-columns: 1fr; gap: var(--sp-7); }
   .project--feature { grid-template-columns: 1fr; padding: var(--sp-6); }
-  .browser-frame { transform: none; }
+  .browser-frame, .project--reverse .browser-frame { transform: none; }
+  .project--reverse .project-body { order: -1; }   /* texto primero, como en el proyecto principal */
+  .project-grid { grid-template-columns: 1fr; }
   .skills-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
@@ -740,6 +777,7 @@ button { font: inherit; color: inherit; cursor: pointer; }
   .ring--a { stroke-dashoffset: 28; } .ring--b { stroke-dashoffset: 52; } .ring--c { stroke-dashoffset: 14; }
   .bar { transform: scaleX(1); }
   .bubble { opacity: 1; transform: none; }
+  .lang-pills g { opacity: 1; transform: none; }
   .tl-line { stroke-dashoffset: 0; }
   .tl-nodes circle { transform: scale(1); }
   .tl-peaks path, .tl-cards rect { opacity: 1; }
